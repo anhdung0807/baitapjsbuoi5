@@ -1,10 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>EX1</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body></body>
+  <body class="container mx-auto mt-5 p-5">
+    <h3>
+      Viết chương trình: Điểm chuẩn, điểm 3 môn, khu vực, đối tượng. Kiểm tra
+      thí sinh đậu hay rớt.
+    </h3>
+    <input
+      type="number"
+      id="diemChuan"
+      class="border p-2 w-1/5 mt-2 rounded"
+      placeholder="Nhập điểm chuẩn"
+    />
+    <br />
+    <input
+      type="number"
+      id="diemMonThu1"
+      class="border p-2 w-1/5 mt-2 rounded"
+      placeholder="Nhập điểm môn thứ nhất"
+    />
+    <input
+      type="number"
+      id="diemMonThu2"
+      class="border p-2 w-1/5 mt-2 rounded"
+      placeholder="Nhập điểm môn thứ hai"
+    />
+    <input
+      type="number"
+      id="diemMonThu3"
+      class="border p-2 w-1/5 mt-2 rounded"
+      placeholder="Nhập điểm môn thứ ba"
+    />
+    <h4 class="text-lg font-bold mt-4">Chọn Khu Vực</h4>
+    <ul style="list-style: none">
+      <li class="type">
+        <input type="radio" id="khuVucA" value="khuVucA" name="selector" />
+        <label for="khuVucA"> Khu Vực A</label>
+
+        <div class="check"></div>
+      </li>
+
+      <li class="type">
+        <input type="radio" id="khuVucB" value="khuVucB" name="selector" />
+        <label for="khuVucB"> Khu Vực B</label>
+        <div class="check"></div>
+      </li>
+
+      <li class="type">
+        <input type="radio" id="khuVucC" ` value="khuVucC" name="selector" />
+        <label for="khuVucC"> Khu Vực C</label>
+        <div class="check"></div>
+      </li>
+    </ul>
+    <h4 class="text-lg font-bold mt-4">Chọn Đối Tượng</h4>
+    <ul style="list-style: none">
+      <li class="type">
+        <input type="radio" id="doiTuong1" value="doiTuong1" name="choose" />
+        <label for="doiTuong1">Đối Tượng 1</label>
+
+        <div class="check"></div>
+      </li>
+
+      <li class="type">
+        <input type="radio" id="doiTuong2" value="doiTuong2" name="choose" />
+        <label for="doiTuong2">Đối Tượng 2</label>
+        <div class="check"></div>
+      </li>
+
+      <li class="type">
+        <input type="radio" id="doiTuong3" ` value="doiTuong3" name="choose" />
+        <label for="doiTuong3">Đối Tượng 3</label>
+        <div class="check"></div>
+      </li>
+    </ul>
+    <button
+      class="bg-green-500 text-white font-bold py-2 px-4 mt-5 rounded hover:bg-green-600"
+      id="btn-kiemTra"
+    >
+      Kiểm Tra
+    </button>
+    <div id="result"></div>
+
+    <script src="./index.js"></script>
+  </body>
 </html>
