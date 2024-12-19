@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="container mx-auto mt-10 w-1/2">
+    <h4 class="text-lg font-bold mb-5">
+      Viết chương trình tính hóa đơn khách hàng cho một công ty cáp. Có 2 loại
+      khách hàng: Nhà dân và doanh nghiệp. Có 2 mức giá tính tiền cáp:
+    </h4>
+    <div class="bg-blue-100 p-5 rounded mb-5">
+      <p class="text-lg font-semibold">Nhà dân:</p>
+      <ul class="list-disc ml-5">
+        <li>Phí xử lý hóa đơn: 4.5$</li>
+        <li>Phí dịch vụ cơ bản: 20.5$</li>
+        <li>Thuê kênh cao cấp: 7.5$ / kênh</li>
+      </ul>
+    </div>
+    <div class="bg-blue-100 p-5 rounded mb-5">
+      <p class="text-lg font-semibold">Doanh nghiệp:</p>
+      <ul class="list-disc ml-5">
+        <li>Phí xử lý hóa đơn: 15$</li>
+        <li>
+          Phí dịch vụ cơ bản: 75$ cho tổng 10 kết nối đầu, mỗi kết nối thêm 5$ /
+          kết nối
+        </li>
+        <li>Thuê kênh cao cấp: 50$ / kênh</li>
+      </ul>
+    </div>
+    <p class="font-semibold text-lg mb-5">
+      Chương trình cho phép nhập vào Mã khách hàng, loại khách hàng, số kết nối,
+      số kênh cao cấp. Nếu chọn loại khách hàng là Doanh nghiệp ô nhập số kết
+      nối sẽ hiện lên, nếu chọn loại khách hàng là nhà dân thì ô nhập kết nối sẽ
+      ẩn đi.
+    </p>
+
+    <input
+      type="text"
+      id="maKhachHang"
+      class="border border-gray-300 rounded p-2 w-1/3 mb-5"
+      placeholder="Nhập mã khách hàng"
+    />
+    <br />
+    <input
+      type="number"
+      id="soKenh"
+      class="border border-gray-300 rounded p-2 w-1/3 mb-5"
+      placeholder="Số kênh cao cấp"
+    />
+    <br />
+    <label for="customerType" class="text-lg font-semibold mb-2"
+      >Loại khách hàng:</label
+    >
+    <br />
+    <select
+      id="customerType"
+      name="customerType"
+      class="border border-gray-300 rounded p-2 w-1/3 mb-5"
+    >
+      <option value="household">Nhà dân</option>
+      <option value="business">Doanh nghiệp</option>
+    </select>
+    <br />
+    <div id="connectionDiv" class="hidden">
+      <label for="connections" class="text-lg font-semibold mb-2"
+        >Số kết nối:</label
+      >
+      <input
+        type="number"
+        id="connections"
+        name="connections"
+        class="border border-gray-300 rounded p-2 w-1/2 mb-5"
+        placeholder="Nhập số kết nối"
+      />
+    </div>
+    <br />
+    <button
+      id="btn-tinhTien"
+      class="bg-green-500 text-white px-5 py-2 rounded hover:bg-green-600"
+    >
+      Tính tiền cáp
+    </button>
+    <div id="result" class="mt-5"></div>
+    <!-- select -->
+    <script>
+      document
+        .getElementById("customerType")
+        .addEventListener("change", function () {
+          var type = this.value;
+          var connectionDiv = document.getElementById("connectionDiv");
+          var connectionsInput = document.getElementById("connections");
+
+          if (type === "business") {
+            connectionDiv.classList.remove("hidden");
+            connectionsInput.disabled = false;
+            connectionsInput.classList.remove("disabled");
+          } else {
+            connectionDiv.classList.add("hidden");
+            connectionsInput.disabled = true;
+            connectionsInput.classList.add("disabled");
+            connectionsInput.value = ""; // Clear the input if disabled
+          }
+        });
+    </script>
+    <script src="./index.js"></script>
+  </body>
+</html>
